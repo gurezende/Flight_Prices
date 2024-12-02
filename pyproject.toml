@@ -7,5 +7,6 @@ requires-python = ">=3.12"
 dependencies = [
     "bs4>=0.0.2",
     "polars>=1.16.0",
+    "requests>=2.32.3",
     "selenium>=4.27.1",
 ]
