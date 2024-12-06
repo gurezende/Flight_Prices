@@ -1,4 +1,5 @@
-'''This script loops 4 times the FlightPrices script to add the search results of fares 7, 30, 60, 90 days prior to the trip'''
+'''This script loops 4 times the flight_prices script to add the search
+results of ticket fares for 10, 30, 60, 90 days ahead from the current date'''
 
 from flight_prices import get_flight_prices
 
