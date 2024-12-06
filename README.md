@@ -1,7 +1,7 @@
 # Flight Prices Project 🛪
 *Gathering airline ticket fares in a SQL DB.*
 
-![](img/flight_fares-wd.jpg)
+![](docs/img/flight_fares-wd.jpg)
 
 
 For the full code visit the repository [Flight Prices in GitHub](https://github.com/gurezende/Flight_Prices).
