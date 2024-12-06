@@ -7,7 +7,13 @@ from polars import col, concat_str
 import numpy as np
 import datetime
 
-def load_to_sql(file_path = '.data/flights.csv'):
+def load_to_sql(flight_date:str, file_path = '.data/flights.csv'):
+    '''
+    Load table to SQL database
+    - Inputs:
+    * file path: str = path to the csv table with flight fares
+    * flight_date: str = search date for the flight
+    '''
  
     # Connect to the database
     conn = sqlite3.connect('flightsdb.db')
@@ -17,10 +23,10 @@ def load_to_sql(file_path = '.data/flights.csv'):
     df = pl.read_csv(file_path)
 
     # Format date
-    yr = datetime.datetime.now().year
+    yr = flight_date[-4:] #get year => last 4 digits of the flight date
     df = (df
-      .filter( col('dt') != "-")
-      .with_columns(concat_str(col('dt'), pl.lit('/'), pl.lit(yr)).alias('dt') ) 
+          .filter( col('dt') != "-")
+          .with_columns(concat_str(col('dt'), pl.lit('/'), pl.lit(yr)).alias('dt') ) 
       )
           
     # Filter Data
@@ -40,15 +46,16 @@ def load_to_sql(file_path = '.data/flights.csv'):
                 flight_number TEXT,
                 n_stops TEXT,
                 flight_lengths FLOAT,
-                ticket_prices FLOAT)
+                ticket_prices FLOAT,
+                days_before_flight INT)
                 ''')
 
 
 
     # Insert data into the table
     cursor.executemany('''
-                    INSERT INTO flights (dt, depart_city, depart_time, city_arrival, time_arrival, flight_number, n_stops, flight_lengths, ticket_prices) 
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    INSERT INTO flights (dt, depart_city, depart_time, city_arrival, time_arrival, flight_number, n_stops, flight_lengths, ticket_prices, days_before_flight) 
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                     ''', 
                     data)
 

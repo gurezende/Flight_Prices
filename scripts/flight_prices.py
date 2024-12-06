@@ -26,11 +26,12 @@ from selenium.webdriver.support.ui import Select, WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from bs4 import BeautifulSoup
 
-
-if __name__ == "__main__":
-
+    
+def get_flight_prices(d):
+    
     # Date to search
-    search_date = get_date(add_days=7)
+    search_date = get_date(add_days=d)
+    print(f'\n >> Searching flights on {search_date} <<') 
 
     # Get Flights page
     get_flights(depart='ZFF',
@@ -95,15 +96,16 @@ if __name__ == "__main__":
         'flight_numbers': flight_numbers,
         'n_stops': n_stops,
         'flight_lengths': flight_lengths,
-        'ticket_prices': ticket_prices
+        'ticket_prices': ticket_prices,
+        'days_before_flight': [str(d)] * len(dt)
         })
         
     print(dtf_flights)
     # Save data as a table
     dtf_flights.write_csv('.data/flights.csv')
 
-    # Load to SQL
-    load_to_sql()
+    # # Load to SQL
+    load_to_sql(flight_date= search_date)
 
-    # Send Whatsapp Message
+    # # Send Whatsapp Message
     send_message(search_date)

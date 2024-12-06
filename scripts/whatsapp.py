@@ -8,7 +8,7 @@ import sqlite3
 import pywhatkit as pw
 import secure
 
-def send_message(flight_date:str):
+def send_message(flight_date):
     '''Get the minimum and average ticket price for a flight date and send via Whatsapp Web'''
     
     # Connect to the SQLite database
