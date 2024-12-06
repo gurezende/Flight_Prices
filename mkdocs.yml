@@ -1,0 +1,9 @@
+site_name: Flight Prices ✈
+
+nav:
+  - Home: index.md
+  - Installation: installation.md
+  - Scripts: functions.md
+  - About: about.md
+
+theme: readthedocs

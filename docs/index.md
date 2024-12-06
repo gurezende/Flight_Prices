@@ -37,14 +37,3 @@ This project was created with **Python 3.12.1**.
 * pywhatkit >= 5.4
 * requests >= 2.32.3
 * selenium >= 4.27.1
-
-
-
-### Log
-
-This is an ongoing project where I am creating a script to get dates and prices of a selected flight.
-
-*Latest update*:
-* 2024-12-03 : Program can fetch flights information from website, parse and load to SQLite.
-* 2024-12-04 : Added message sent via Whatsapp.
-* Next feature is to add scheduler. Windows scheduler not working.
