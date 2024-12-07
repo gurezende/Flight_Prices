@@ -22,6 +22,12 @@ So, the scripts will:
 5. Send a message via WhatsApp with the flight with the lowest price and the average price of the flights for that date.
     * Done with `pywhatkit`.
 
+### Notes
+
+* All the prices are in BRL (Brazilian Real)
+* The flight length is in hours.
+
+
 ## Python Version
 
 This project was created with **Python 3.12.1**.
