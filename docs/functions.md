@@ -6,7 +6,8 @@
 * `parser_final.py`: parses the hmtl of the results to extract information.
     * *departure date, city, time*
     * *arrival city, time*
-    * *flight length, number of stops*
+    * *flight length (in hours), number of stops*
+    * *ticket prices (in BRL)*
 * `load_sql.py`: Loads the resulting structured table to a SQLite3 database.
 * `whatsapp.py`: Sends a message with the cheapest flight and average ticket fare for the selected date.
 * `flight_prices.py`: Main script to organize and call the previous in order.
