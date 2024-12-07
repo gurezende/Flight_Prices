@@ -12,7 +12,7 @@
 * `flight_prices.py`: Main script to organize and call the previous in order.
 * `CompareFares.py`: Final script to enable choosing origin and destin cities and number of days from the current date to fetch results.
 
-# Output Example
+## Output Example
 
 The expected outputs are as follows.
 
