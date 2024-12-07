@@ -49,10 +49,6 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#scripts">Scripts</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#scripts.flight_prices.get_flight_prices">get_flight_prices</a>
-    </li>
     </ul>
                 </li>
               </ul>
@@ -99,6 +95,182 @@
 <li><code>flight_prices.py</code>: Main script to organize and call the previous in order.</li>
 <li><code>CompareFares.py</code>: Final script to enable choosing origin and destin cities and number of days from the current date to fetch results.</li>
 </ul>
+<h1 id="output-example">Output Example</h1>
+<p>The expected outputs are as follows.</p>
+<ul>
+<li><strong>[.csv]</strong> file with the flight prices will be the output of the <code>load_sql</code> script. <ul>
+<li>The table will be loaded to a relational database.</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>dt</th>
+<th>depart_city</th>
+<th>depart_time</th>
+<th>city_arrival</th>
+<th>time_arrival</th>
+<th>flight_numbers</th>
+<th>n_stops</th>
+<th>flight_lengths</th>
+<th>ticket_prices</th>
+<th>days_before_flight</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>28/12</td>
+<td>FLL</td>
+<td>18:30</td>
+<td>VCP</td>
+<td>"04:45"</td>
+<td>Voo 8705</td>
+<td>Direto</td>
+<td>8.25</td>
+<td>12510</td>
+<td>22</td>
+</tr>
+<tr>
+<td>28/12</td>
+<td>MCO</td>
+<td>19:00</td>
+<td>VCP</td>
+<td>"05:35"</td>
+<td>Voo 8707</td>
+<td>Direto</td>
+<td>8.58</td>
+<td>4463</td>
+<td>22</td>
+</tr>
+<tr>
+<td>28/12</td>
+<td>FLL</td>
+<td>22:30</td>
+<td>VCP</td>
+<td>"08:45"</td>
+<td>Voo 9305</td>
+<td>Direto</td>
+<td>8.25</td>
+<td>2203</td>
+<td>22</td>
+</tr>
+<tr>
+<td>28/12</td>
+<td>FLL</td>
+<td>15:30</td>
+<td>VCP</td>
+<td>"07:20"</td>
+<td>Voo 8723</td>
+<td>1 conex</td>
+<td>13.8</td>
+<td>3845</td>
+<td>22</td>
+</tr>
+<tr>
+<td>28/12</td>
+<td>FLL</td>
+<td>20:30</td>
+<td>VCP</td>
+<td>"09:15"</td>
+<td>Voo 8733</td>
+<td>1 conex</td>
+<td>10.75</td>
+<td>2768</td>
+<td>22</td>
+</tr>
+<tr>
+<td>28/12</td>
+<td>FLL</td>
+<td>20:30</td>
+<td>VCP</td>
+<td>"11:40"</td>
+<td>Voo 8733</td>
+<td>1 conex</td>
+<td>13.2</td>
+<td>0</td>
+<td>22</td>
+</tr>
+<tr>
+<td>28/12</td>
+<td>FLL</td>
+<td>20:30</td>
+<td>VCP</td>
+<td>"18:00"</td>
+<td>Voo 8733</td>
+<td>1 conex</td>
+<td>19.5</td>
+<td>2768</td>
+<td>22</td>
+</tr>
+<tr>
+<td>28/12</td>
+<td>FLL</td>
+<td>20:30</td>
+<td>VCP</td>
+<td>"19:00"</td>
+<td>Voo 8733</td>
+<td>1 conex</td>
+<td>20.5</td>
+<td>2768</td>
+<td>22</td>
+</tr>
+<tr>
+<td>VCP</td>
+<td>10:15</td>
+<td>MCO</td>
+<td>"17:00"</td>
+<td>Voo 8706</td>
+<td>Direto</td>
+<td>8.75</td>
+<td>0</td>
+<td>22</td>
+<td></td>
+</tr>
+<tr>
+<td>VCP</td>
+<td>11:05</td>
+<td>FLL</td>
+<td>"17:30"</td>
+<td>Voo 8702</td>
+<td>Direto</td>
+<td>8.4</td>
+<td>13711</td>
+<td>22</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>After processed, the data table that follows is transformed into a dictionary and sent as text message via WhatsApp.<ul>
+<li>The script performing this task is <code>whatsapp.py</code>.</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>dt</th>
+<th>depart_city</th>
+<th>city_arrival</th>
+<th>n_stops</th>
+<th>flight_lengths</th>
+<th>MIN_PRICE</th>
+<th>AVG_PRICE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>28/12/2024</td>
+<td>FLL</td>
+<td>VCP</td>
+<td>Direto</td>
+<td>8.25</td>
+<td>2203.0</td>
+<td>4475.0</td>
+</tr>
+</tbody>
+</table>
 <h2 id="functions">Functions</h2>
 <p>This is the main function code in the script <code>flight_prices.py</code>.</p>
 
