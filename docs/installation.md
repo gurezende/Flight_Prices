@@ -2,7 +2,10 @@
 
 ## **1**
 To run this project, first create a virtual environment. I used the module `uv` for that.
-Install all the modules displayed in the [Modules Section](index.md/#modules)
+
+Install all the modules displayed in the [Requirements Section](index.md/#requirements).
+Here is an example on how to create a new virtual environment using the terminal.
+
 ```Python
 # Install UV
 pip install uv

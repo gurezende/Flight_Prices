@@ -34,7 +34,7 @@ This project was created with **Python 3.12.1**.
 
 ## Requirements
 
-* uv | bs4 | mkdocs | mkdocstrings-python | numpy | polars | pywhatkit | requests | selenium
+* `uv` | `bs4` | `mkdocs` | `mkdocstrings-python` | `numpy` | `polars` | `pywhatkit` | `requests` | `selenium`
 
 * You need *Google Chome* browser to run this project.
 
@@ -47,3 +47,4 @@ This is an ongoing project where I am creating a script to get dates and prices 
 * 2024-12-03 : Program can fetch flights information from website, parse and load to SQLite.
 * 2024-12-04 : Added message sent via Whatsapp.
 * 2024-12-06 : Added documentation.
+* Next: Medium article.
