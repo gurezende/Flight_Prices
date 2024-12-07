@@ -11,3 +11,6 @@ plugins:
     default_handler: python
 
 theme: readthedocs
+
+repo_name: "gurezende/Flight_Prices"
+repo_url: "https://github.com/gurezende/Flight_Prices"

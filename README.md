@@ -4,7 +4,7 @@
 ![](docs/img/flight_fares-wd.jpg)
 
 
-For the full **Documentation**: [Documentation Page MkDocs](https://github.com/gurezende/Flight_Prices).
+For the full **Documentation**: [Documentation Page MkDocs](https://gurezende.github.io/Flight_Prices/).
 
 ## Problem and Description
 
@@ -26,11 +26,11 @@ So, the scripts will:
 
 This project was created with **Python 3.12.1**.
 
-## Modules
+## Requirements
 
 * uv | bs4 | mkdocs | mkdocstrings-python | numpy | polars | pywhatkit | requests | selenium
 
-You need *Google Chome* browser to run this project.
+* You need *Google Chome* browser to run this project.
 
 
 ## Log
