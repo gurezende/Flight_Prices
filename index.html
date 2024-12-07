@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="None" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>Flight Prices ✈</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="assets/_mkdocstrings.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Home";
+        var mkdocs_page_input_path = "index.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="." class="icon icon-home"> Flight Prices ✈
+        </a>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Home</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#problem-and-description">Problem and Description</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#python-version">Python Version</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="installation/">Installation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="functions/">Scripts</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="about/">About</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href=".">Flight Prices ✈</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Home</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/gurezende/Flight_Prices/edit/master/docs/index.md">Edit on gurezende/Flight_Prices</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="flight-prices-project">Flight Prices Project 🛪</h1>
+<p><em>Gathering airline ticket fares in a SQL DB.</em></p>
+<p><img alt="" src="img/flight_fares-wd.jpg" /></p>
+<p>For the full code visit the repository <a href="https://github.com/gurezende/Flight_Prices">Flight Prices in GitHub</a>.</p>
+<h2 id="problem-and-description">Problem and Description</h2>
+<p>This project was created to fulfill the problem of getting flight ticket prices on a weekly basis for a future study about how the prices behave thoughout an year.</p>
+<p>So, the scripts will:</p>
+<ol>
+<li>Navigate to the airline company website and get flight ticket fares for the given date.</li>
+<li>Scrape the results<ul>
+<li>This was accomplished with <code>Selenium</code>.    </li>
+</ul>
+</li>
+<li>Parse departure and arrival city, time and date, flight length, number of stops and ticket price.<ul>
+<li>Done with <code>BeautifulSoup</code>.</li>
+</ul>
+</li>
+<li>Store the structured data in a SQL DB<ul>
+<li>Stored in <code>SQLite 3</code>.</li>
+</ul>
+</li>
+<li>Send a message via WhatsApp with the flight with the lowest price and the average price of the flights for that date.<ul>
+<li>Done with <code>pywhatkit</code>.</li>
+</ul>
+</li>
+</ol>
+<h2 id="python-version">Python Version</h2>
+<p>This project was created with <strong>Python 3.12.1</strong>.</p>
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li>uv &gt;= 0.5.1</li>
+<li>bs4 &gt;= 0.0.2</li>
+<li>mkdocs &gt;= 1.6.1</li>
+<li>mkdocstrings-python &gt;= 1.12.2</li>
+<li>numpy &gt;= 2.1.3</li>
+<li>polars &gt;= 1.16.0</li>
+<li>pywhatkit &gt;= 5.4</li>
+<li>requests &gt;= 2.32.3</li>
+<li>selenium &gt;= 4.27.1</li>
+</ul>
+<p>You need <em>Google Chome</em> browser to run this project.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="installation/" class="btn btn-neutral float-right" title="Installation">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/gurezende/Flight_Prices" class="fa fa-code-fork" style="color: #fcfcfc"> gurezende/Flight_Prices</a>
+        </span>
+    
+    
+    
+      <span><a href="installation/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.6.1
+Build Date UTC : 2024-12-07 00:21:51.181153+00:00
+-->
