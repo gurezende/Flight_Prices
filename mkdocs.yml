@@ -6,4 +6,8 @@ nav:
   - Scripts: functions.md
   - About: about.md
 
+plugins:
+- mkdocstrings:
+    default_handler: python
+
 theme: readthedocs

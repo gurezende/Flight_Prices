@@ -27,15 +27,21 @@ from selenium.webdriver.support import expected_conditions as EC
 from bs4 import BeautifulSoup
 
     
-def get_flight_prices(d):
-    
+def get_flight_prices(d, origin_cd='ZFF', destin_cd='VCP'):
+    '''
+    This function runs the main script that controls the webscraping, parsing, load to SQL and message.
+    - INPUTS:
+    * d: int = How many days ahead from today do you want to search flights
+    * origin_cd: str = Flight origin city code
+    * destin_cd: str = Flight destin city code
+    '''
     # Date to search
     search_date = get_date(add_days=d)
     print(f'\n >> Searching flights on {search_date} <<') 
 
     # Get Flights page
-    get_flights(depart='ZFF',
-                arrivl='VCP',
+    get_flights(depart=origin_cd,
+                arrivl=destin_cd,
                 date_depart= search_date,
                 days_range= 5)
     
@@ -98,7 +104,7 @@ def get_flight_prices(d):
         'flight_lengths': flight_lengths,
         'ticket_prices': ticket_prices,
         'days_before_flight': [str(d)] * len(dt)
-        })
+        }).select(pl.all().backward_fill())
         
     print(dtf_flights)
     # Save data as a table
@@ -107,5 +113,10 @@ def get_flight_prices(d):
     # # Load to SQL
     load_to_sql(flight_date= search_date)
 
-    # # Send Whatsapp Message
-    send_message(search_date)
+    
+    # Origin codes must bring all city codes fetched
+    origin_codes = str( tuple(set(dtf_flights['depart_city'])) )
+
+
+    # Send Whatsapp Message
+    send_message(search_date, origin_cd=origin_codes)

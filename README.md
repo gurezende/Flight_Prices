@@ -4,7 +4,7 @@
 ![](docs/img/flight_fares-wd.jpg)
 
 
-For the full code visit the repository [Flight Prices in GitHub](https://github.com/gurezende/Flight_Prices).
+For the full **Documentation**: [Documentation Page MkDocs](https://github.com/gurezende/Flight_Prices).
 
 ## Problem and Description
 
@@ -28,23 +28,16 @@ This project was created with **Python 3.12.1**.
 
 ## Modules
 
-* uv >= 0.5.1
-* bs4 >= 0.0.2
-* mkdocs >= 1.6.1
-* mkdocstrings-python >= 1.12.2
-* numpy >= 2.1.3
-* polars >= 1.16.0
-* pywhatkit >= 5.4
-* requests >= 2.32.3
-* selenium >= 4.27.1
+* uv | bs4 | mkdocs | mkdocstrings-python | numpy | polars | pywhatkit | requests | selenium
+
+You need *Google Chome* browser to run this project.
 
 
-
-### Log
+## Log
 
 This is an ongoing project where I am creating a script to get dates and prices of a selected flight.
 
 *Latest update*:
 * 2024-12-03 : Program can fetch flights information from website, parse and load to SQLite.
 * 2024-12-04 : Added message sent via Whatsapp.
-* Next feature is to add scheduler. Windows scheduler not working.
+* 2024-12-06 : Added documentation.

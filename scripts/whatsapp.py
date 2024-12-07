@@ -8,8 +8,12 @@ import sqlite3
 import pywhatkit as pw
 import secure
 
-def send_message(flight_date):
-    '''Get the minimum and average ticket price for a flight date and send via Whatsapp Web'''
+def send_message(flight_date, origin_cd):
+    '''Get the minimum and average ticket price for a flight date and send via Whatsapp Web
+    INPUTS:
+    * flight_date: str = date to search for flights
+    * origin_cd = codes of the cities to be considered. e.g. origin_cds = "('MIA', 'FLL', 'MCO')"
+    '''
     
     # Connect to the SQLite database
     
@@ -17,20 +21,26 @@ def send_message(flight_date):
 
     # SQL query
     sql = f'''
-    -- Main query
-    SELECT f.dt, depart_city, city_arrival, n_stops, flight_lengths, min(ticket_prices) as MIN_PRICE,
-        s.AVG_PRICE 
-    FROM flights f
-    LEFT JOIN 
-
-    -- Subquery Average
-        (SELECT dt, AVG(ticket_prices) as AVG_PRICE
-        FROM flights
-        GROUP BY dt) s
-
-    ON f.dt = s.dt
-    WHERE f.dt = "{flight_date}"
-    '''
+        -- Main query
+        SELECT 
+            f.dt, 
+            f.depart_city, 
+            f.city_arrival, 
+            f.n_stops, 
+            f.flight_lengths, 
+            MIN(f.ticket_prices) AS MIN_PRICE, 
+            s.AVG_PRICE
+        FROM flights f
+        LEFT JOIN (
+            SELECT dt, AVG(ticket_prices) AS AVG_PRICE
+            FROM flights
+            WHERE depart_city IN {origin_cd}
+            GROUP BY dt
+        ) s
+        ON f.dt = s.dt
+        WHERE f.depart_city IN {origin_cd} 
+        AND f.dt = "{flight_date}"
+      '''
 
     # Query db
     df = pl.read_database(

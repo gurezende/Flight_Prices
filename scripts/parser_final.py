@@ -2,6 +2,7 @@
 from bs4 import BeautifulSoup
 import polars as pl
 import re
+import numpy as np
 
 
 def open_file(file_path):
@@ -37,7 +38,7 @@ def departure_information(element):
                       .split(' • '))
     # If no date is provided, use "-"
     if len(departure_date) == 1: 
-        departure_date = "-"
+        departure_date = None
     else:
         departure_date = departure_date[1]
     
@@ -98,6 +99,8 @@ def flight_information(element):
         day_length = int(flight_length[0].split('d')[0])*24
         if len(flight_length) < 2:
             flight_length.extend(['0h', '0m']) # When the flight is 1d, add 0h and 0m
+        elif len(flight_length) < 3:
+            flight_length.extend(['0m']) # When the flight is 1d 8h, add 0m
         hr_length = int(flight_length[1].split('h')[0]) + day_length
         min_length = int(flight_length[2].split('m')[0])
     else:
@@ -105,10 +108,10 @@ def flight_information(element):
         hr_length = int(flight_length[0].split('h')[0])
         if len(flight_length) < 2: flight_length.append('0m') #if flight is 8h0m, the min is not displayed, so we need to add.
         min_length = int(flight_length[1].split('m')[0])
-
+    
     # Convert to hours
     hours_length = hr_length + (min_length/60)
-
+    
     return flight_number, stops, hours_length
 
 ##################################################
@@ -132,9 +135,9 @@ def prices_information(soup):
             .replace('.', '')
             .replace('\n','')
             .replace('A partir de','')
-            .replace('Voo esgotado','0')
+            .replace('Voo esgotado','0-')
             .replace(' ','')
-            .replace('00','0')
+            .replace('0-0-','0')
             .split(',')[0]
             .strip()
         )
@@ -146,7 +149,10 @@ def prices_information(soup):
 
 ##################################################
 
-# # Open HTML file
+# Open HTML file
 # soup = open_file('.data/flights.html')
-# prices_information(soup=soup)
+# departures = soup.find_all("div", class_="flight-card__info left-container css-vjjku5")
+# # prices_information(soup=soup)
+# for element in departures:
+#     flight_information(element=element)
 

@@ -26,7 +26,7 @@ So, the scripts will:
 
 This project was created with **Python 3.12.1**.
 
-## Modules
+## Requirements
 
 * uv >= 0.5.1
 * bs4 >= 0.0.2
@@ -37,3 +37,5 @@ This project was created with **Python 3.12.1**.
 * pywhatkit >= 5.4
 * requests >= 2.32.3
 * selenium >= 4.27.1
+
+You need *Google Chome* browser to run this project.
