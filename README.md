@@ -66,7 +66,7 @@ flowchart TB
     subgraph Saving-to-DB
         direction TB
         File[[CSV File saved to .data]] --> DB[(Structured Table saved to SQLite DB)]
-        style DB fill: #ababfd
+        style DB fill: #300
     end
 
 
