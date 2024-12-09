@@ -52,27 +52,26 @@ This is an ongoing project where I am creating a script to get dates and prices 
 ## Project Layout
 
 ```mermaid
-flowchart LR
+flowchart TB
     subgraph Webscraping
         direction TB
-        Internet[/Browse\nAirline\nCompany\nWebsite/]
+        Internet[/Browse Airline Company Website/]
     end
 
     subgraph Structuring-Data
         direction TB
-        Scrape(Scrape Data\nwith\nBeautifulSoup ) --> Parsing(Parse Data\nfrom HTML)
+        Scrape(Scrape Data with BeautifulSoup ) --> Parsing(Parse Data from HTML)
     end
 
     subgraph Saving-to-DB
         direction TB
-        File[[CSV File\nsaved to .data]] --> DB[(Structured Table\n saved to\n SQLite DB)]
+        File[[CSV File saved to .data]] --> DB[(Structured Table saved to SQLite DB)]
         style DB fill: #ababfd
     end
 
 
     subgraph Send-Message
-        Message[/Message\nsent via\nWeb WhatsApp/]
-        style Message fill:#90EE90
+        Message[/Message sent via Web WhatsApp/]
     end
 
 Webscraping --> Structuring-Data --> Saving-to-DB --> Send-Message
