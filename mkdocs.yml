@@ -9,6 +9,9 @@ nav:
 plugins:
 - mkdocstrings:
     default_handler: python
+- search
+- mermaid2
+
 
 theme: readthedocs
 

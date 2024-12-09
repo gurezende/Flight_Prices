@@ -13,6 +13,39 @@
 * `flight_prices.py`: Main script to organize and call the previous in order.
 * `CompareFares.py`: Final script to enable choosing origin and destin cities and number of days from the current date to fetch results.
 
+```mermaid
+flowchart LR
+    subgraph CompareFares.py
+        direction LR
+        style CompareFares.py fill: #999DA0, stroke:#000
+        
+        subgraph flight_prices.py
+            direction LR
+            style flight_prices.py fill: #e5e5e5, stroke:#000
+            subgraph Webscraping
+                Internet[/webscraping.py/]
+            end
+
+            subgraph Structuring-Data
+                Scrape(parser_final.py)
+            end
+
+            subgraph Saving-to-DB
+                direction TB
+                Load[[load_sql.py]] --> DB[(SQLite DB)]
+                style DB fill: #ababfd
+            end
+
+            subgraph Send-Message
+                Message[/whatsApp.py/]
+                style Message fill:#90EE90
+            end
+        end
+    end
+
+Webscraping --> Structuring-Data --> Saving-to-DB --> Send-Message
+```
+<br>
 ## Output Example
 
 The expected outputs are as follows.

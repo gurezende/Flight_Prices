@@ -10,10 +10,6 @@ from load_sql import load_to_sql
 from whatsapp import send_message
 
 # Imports 
-import datetime
-import time
-import sqlite3
-import re
 import pywhatkit as pw
 import polars as pl
 from polars import col, concat_str

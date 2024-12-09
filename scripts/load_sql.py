@@ -5,7 +5,6 @@ import sqlite3
 import polars as pl
 from polars import col, concat_str
 import numpy as np
-import datetime
 
 def load_to_sql(flight_date:str, file_path = '.data/flights.csv'):
     '''

@@ -34,7 +34,7 @@ This project was created with **Python 3.12.1**.
 
 ## Requirements
 
-* `uv` | `bs4` | `mkdocs` | `mkdocstrings-python` | `numpy` | `polars` | `pywhatkit` | `requests` | `selenium`
+* `uv` | `bs4` | `mkdocs` | `mkdocstrings-python` | `mkdocs-mermaid2-plugin` | `numpy` | `polars` | `pywhatkit` | `requests` | `selenium`
 
 * You need *Google Chome* browser to run this project.
 
@@ -47,4 +47,34 @@ This is an ongoing project where I am creating a script to get dates and prices 
 * 2024-12-03 : Program can fetch flights information from website, parse and load to SQLite.
 * 2024-12-04 : Added message sent via Whatsapp.
 * 2024-12-06 : Added documentation.
-* Next: Medium article.
+* 2024-12-09 : Medium article.
+
+## Project Layout
+
+```mermaid
+flowchart LR
+    subgraph Webscraping
+        direction TB
+        Internet[/Browse\nAirline\nCompany\nWebsite/]
+    end
+
+    subgraph Structuring-Data
+        direction TB
+        Scrape(Scrape Data\nwith\nBeautifulSoup ) --> Parsing(Parse Data\nfrom HTML)
+    end
+
+    subgraph Saving-to-DB
+        direction TB
+        File[[CSV File\nsaved to .data]] --> DB[(Structured Table\n saved to\n SQLite DB)]
+        style DB fill: #ababfd
+    end
+
+
+    subgraph Send-Message
+        Message[/Message\nsent via\nWeb WhatsApp/]
+        style Message fill:#90EE90
+    end
+
+Webscraping --> Structuring-Data --> Saving-to-DB --> Send-Message
+
+```

@@ -6,6 +6,36 @@
 
 For the full code visit the repository [Flight Prices in GitHub](https://github.com/gurezende/Flight_Prices).
 
+## Project Layout
+
+```mermaid
+flowchart LR
+    subgraph Webscraping
+        direction TB
+        Internet[/Browse\nAirline\nCompany\nWebsite/]
+    end
+
+    subgraph Structuring-Data
+        direction TB
+        Scrape(Scrape Data\nwith\nBeautifulSoup ) --> Parsing(Parse Data\nfrom HTML)
+    end
+
+    subgraph Saving-to-DB
+        direction TB
+        File[[CSV File\nsaved to .data]] --> DB[(Structured Table\n saved to\n SQLite DB)]
+        style DB fill: #ababfd
+    end
+
+
+    subgraph Send-Message
+        Message[/Message\nsent via\nWeb WhatsApp/]
+        style Message fill:#90EE90
+    end
+
+Webscraping --> Structuring-Data --> Saving-to-DB --> Send-Message
+
+```
+<br>
 ## Problem and Description
 
 This project was created to fulfill the problem of getting flight ticket prices on a weekly basis for a future study about how the prices behave thoughout an year.
@@ -37,6 +67,7 @@ This project was created with **Python 3.12.1**.
 * bs4 >= 0.0.2
 * mkdocs >= 1.6.1
 * mkdocstrings-python >= 1.12.2
+* mkdocs-mermaid2-plugin >= 1.2.1
 * numpy >= 2.1.3
 * polars >= 1.16.0
 * pywhatkit >= 5.4
