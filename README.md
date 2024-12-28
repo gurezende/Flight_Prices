@@ -6,6 +6,8 @@
 
 For the full **Documentation**: [Documentation Page MkDocs](https://gurezende.github.io/Flight_Prices/).
 
+Read Medium article with detailed description of the project. [Medium Post](https://medium.com/@gustavorsantos/how-i-created-a-database-of-flight-ticket-prices-and-send-myself-the-cheapest-flights-weekly-b644951426a1?sk=cf76d7f745ad2f1f3b56385f3aaee2b8)
+
 ## Problem and Description
 
 This project was created to fulfill the problem of getting flight ticket prices on a weekly basis for a future study about how the prices behave thoughout an year.
