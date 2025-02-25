@@ -10,8 +10,3 @@ if __name__ == "__main__":
                           origin_cd= 'ZFF',
                           destin_cd = 'VCP'
                           )
-
-
-
-
-
