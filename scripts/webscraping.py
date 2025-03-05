@@ -95,7 +95,7 @@ def get_flights(depart, arrivl, date_depart='today', days_range=10):
     time.sleep(2)
     driver.find_element(By.CSS_SELECTOR, '[data-testid="search-box-hotel-date-picker-primary-button"]').click()
 
-    time.sleep(25)
+    time.sleep(15)
 
     # Get page HTML
     html_doc = driver.page_source
